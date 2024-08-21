@@ -1,0 +1,13 @@
+.button {
+  font-family: "Fermino";
+  font-size: 20px;
+  text-align: left;
+  text-decoration: none;
+  padding: 10px 20px;
+  width: 150px;
+  color: black;
+}
+
+.active {
+  color: blue;
+}

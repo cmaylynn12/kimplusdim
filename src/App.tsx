@@ -1,25 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import './fonts/IrishBelle.ttf';
+
+import Home from './components/home/home';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Wedding from './components/wedding/wedding';
+import RSVP from './components/rsvp/rsvp';
+import Activities from './components/activities/activities';
+import FAQs from './components/faqs/faqs';
+import Accommodation from './components/accommodation/accommodation';
+import Registry from './components/registry/registry';
+import RSVPLanding from './components/rsvp/rsvpLanding';
+import RSVPError from './components/rsvp/rsvpError';
+import { AppWrapper } from './contexts/AppContext';
+
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppWrapper>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/accommodation" element={<Accommodation />} />
+          <Route path="/wedding" element={<Wedding />} />
+          <Route path="/rsvp" element={<RSVPLanding />} />
+          <Route path="/registry" element={<Registry />} />
+          <Route path="/activities" element={<Activities />} />
+          <Route path="/faqs" element={<FAQs />} />
+          <Route path="/rsvp/:id" element={<RSVP />} />
+          <Route path="/rsvp/error" element={<RSVPError />} />
+        </Routes>
+      </BrowserRouter>
+    </AppWrapper>
   );
 }
 

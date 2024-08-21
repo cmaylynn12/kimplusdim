@@ -1,0 +1,11 @@
+
+.accommodation-container {
+  display: flex;
+  gap: 20px;
+}
+
+.title {
+  font-family: "Fermino";
+  font-size: 40px;
+
+}

@@ -1,0 +1,24 @@
+.address {
+  font-size: 25px;
+}
+
+.container {
+  font-family: "Playfair";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.venue {
+  font-size: 40px;
+}
+
+.venue-info {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+

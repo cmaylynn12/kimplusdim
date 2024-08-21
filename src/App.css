@@ -1,3 +1,28 @@
+@font-face {
+  font-family: "Bluebird";   /*Can be any text*/
+  src: local("Bluebird"),
+    url("./fonts/Bluebird.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Playfair";   /*Can be any text*/
+  src: local("Playfair"),
+    url("./fonts/Playfair.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Careny";   /*Can be any text*/
+  src: local("Careny"),
+    url("./fonts/Careny.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Fermino";   /*Can be any text*/
+  src: local("Fermino"),
+    url("./fonts/Fermino.ttf") format("truetype");
+}
+
+
 .App {
   text-align: center;
 }

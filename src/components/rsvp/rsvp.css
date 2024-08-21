@@ -1,0 +1,150 @@
+.pulse {
+  animation: pulse 2s infinite;
+  position: absolute;
+  left: 44%;
+  top: 40%;
+  /* transform: translateX(-50%);  */
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+    
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 50px;
+  align-items: center;
+  width: 80%;
+}
+
+.landing-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.form-container { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  gap: 20px;
+}
+
+.form-header {
+  font-family: "Careny";
+  font-size: 50px;
+}
+
+.form-subheader {
+  display: flex;
+  flex-direction: column;
+  font-family: "Playfair";
+  font-size: 20px;
+  gap: 10px;
+}
+
+.form-text {
+  display: flex;
+  flex-direction: column;
+  font-family: "Playfair";
+  font-size: 32px;
+
+  > p {
+    margin: 15px 0;
+  }
+
+  > div {
+    font-size: 20px;
+  }
+}
+
+.guest-list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.guest-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.home-button {
+  font-family: "Fermino";
+  width: 150px;
+  padding: 20px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.home-button:hover {
+  background-color: antiquewhite;
+}
+
+.input-button {
+  background-color: #61dafb;
+  height: 45px;
+  width: 120px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.landing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 50px;
+  align-items: center;
+}
+
+.rsvp-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.rsvp-text {
+  font-family: "Playfair";
+  font-size: 20px;
+}
+
+.submitted-container {
+  margin-top: 30px;
+}

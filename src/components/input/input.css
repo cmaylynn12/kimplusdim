@@ -1,0 +1,14 @@
+.input {
+  font-family: "Bluebird";
+  font-size: 30px;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid grey;
+  line-height: 50px;
+  width: 100%;
+}
+
+.input:active, .input:focus {
+  outline: none;
+}

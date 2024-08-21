@@ -1,0 +1,7 @@
+.accommodation-card {
+  height: 400px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid black;
+  overflow: hidden;
+}

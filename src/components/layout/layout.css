@@ -1,0 +1,31 @@
+.body {
+  height: fit-content;
+}
+
+.header {
+  display: flex;
+  justify-content: left;
+}
+
+.main {
+  width: 60%;
+  padding: 60px 0;
+  margin: auto;
+  text-align: center;
+}
+
+.menu {
+  margin-top: 40px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+}
+
+.title {
+  font-family: "Fermino";
+  font-size: 40px;
+}
