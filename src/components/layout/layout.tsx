@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import MenuItem from '../menuItem/menuItem';
 import './layout.css';
 import AppContext from '../../contexts/AppContext';
+import clsx from 'clsx';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -11,7 +12,8 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({children, activeSection, title}: LayoutProps) => {
   
-  const { mute, unmute, isMuted, setIsMuted } = useContext(AppContext);
+  const { mute, unmute, isMuted, setIsMuted, isMobile } = useContext(AppContext);
+  const [ isMenuOpen, setIsMenuOpen ] = useState(false);
 
   const handleSoundButtonToggle = () => {
     if (isMuted) {
@@ -26,17 +28,23 @@ const Layout: React.FC<LayoutProps> = ({children, activeSection, title}: LayoutP
     <>
       <div className='body'>
         <div className='header'>
-          <div className='menu'>
+        { isMobile && <div id="nav-icon4" onClick={() => setIsMenuOpen(!isMenuOpen)} className={clsx({'open': isMenuOpen})}>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        }
+        <div className={`menu ${isMenuOpen ? 'show' : 'hide'}`}>
             <MenuItem activeSection={activeSection} section='home' title='Home' urlPath='/'/>
-            <MenuItem activeSection={activeSection} section= 'accommodation' title='Accommodation' urlPath='/accommodation'/>
-            <MenuItem activeSection={activeSection} section= 'wedding' title='Wedding' urlPath='/wedding'/>
-            <MenuItem activeSection={activeSection} section= 'activities' title='Things to Do' urlPath='/activities'/>
-            <MenuItem activeSection={activeSection} section= 'registry' title='Registry' urlPath='/registry'/>
-            <MenuItem activeSection={activeSection} section= 'faqs' title='FAQs' urlPath='/faqs'/>
             <MenuItem activeSection={activeSection} section= 'rsvp' title='RSVP' urlPath='/rsvp'/>
-          </div>     
+            {/* <MenuItem activeSection={activeSection} section= 'accommodation' title='Accommodation' urlPath='/accommodation' />
+            <MenuItem activeSection={activeSection} section= 'wedding' title='Wedding' urlPath='/wedding' />
+            <MenuItem activeSection={activeSection} section= 'activities' title='Things to Do' urlPath='/activities' />
+            <MenuItem activeSection={activeSection} section= 'registry' title='Registry' urlPath='/registry' />
+            <MenuItem activeSection={activeSection} section= 'faqs' title='FAQs' urlPath='/faqs' /> */}
+          </div> 
         </div> 
-        <button onClick={handleSoundButtonToggle}>{isMuted ? "PLAY" : "PAUSE"}</button>
+        <img className="volume" src={isMuted ? "/mute.svg" : "/unmute.svg"} width={30} height={30} onClick={handleSoundButtonToggle} />
         <div className='main'>
           { title && <p className="title">{title}</p>}
           {children}

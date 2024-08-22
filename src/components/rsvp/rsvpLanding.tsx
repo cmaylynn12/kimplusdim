@@ -49,7 +49,7 @@ const RSVPLanding: React.FC = () => {
           <p>Please enter your name as stated in the invitation.</p>
           <div>If you're responding for you and on behalf of others, you'll be able to RSVP for your entire group on the next page.</div>
         </div>
-        <RSVPInput fieldName={"Name"} fieldValue={name} disabled={false} onChange={(name) => {setName(name); setError(null)}}/>
+        <RSVPInput fieldName={"Name"} fieldValue={name} disabled={false} onChange={(name) => {setName(name); setError(null)}} />
         { error && <div>{error}</div>}
         { name && !error && (
           <input className="input-button" type="submit" value="Continue"/>

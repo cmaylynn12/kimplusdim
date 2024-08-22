@@ -10,6 +10,7 @@ export interface AppState {
   mute: () => void;
   isMuted: boolean;
   setIsMuted: (mute: boolean) => void;
+  isMobile: boolean;
 }
 
 interface AppWrapperProps {
@@ -25,6 +26,18 @@ export const AppWrapper: React.FC<AppWrapperProps> = ({ children }) => {
   const [ error, setError ] = useState<any>(null);
   const [ audio ] = useState(new Audio("/music.m4a"));
   const [ isMuted, setIsMuted ] = useState(true);
+  const [ isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+
+const handleWindowSizeChange = () => {
+  setIsMobile(window.innerWidth <= 600);
+}
+
+useEffect(() => {
+  window.addEventListener('resize', handleWindowSizeChange);
+  return () => {
+    window.removeEventListener('resize', handleWindowSizeChange);
+  }
+}, []);
 
   const unmute = () => {
     audio.play();
@@ -59,7 +72,8 @@ export const AppWrapper: React.FC<AppWrapperProps> = ({ children }) => {
     unmute,
     mute,
     isMuted,
-    setIsMuted
+    setIsMuted,
+    isMobile
   }
 
   return <AppContext.Provider value={state}>{children}</AppContext.Provider>;

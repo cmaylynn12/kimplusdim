@@ -126,6 +126,10 @@
   cursor: pointer;
 }
 
+.input-button:disabled { 
+  cursor: not-allowed;
+}
+
 .landing-form {
   display: flex;
   flex-direction: column;

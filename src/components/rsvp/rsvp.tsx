@@ -1,5 +1,5 @@
 import { useLocation, useParams } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 import "./rsvp.css";
 import RSVPSubmitted from "./rsvpSubmitted";
@@ -11,22 +11,28 @@ import AppContext from "../../contexts/AppContext";
 
 const RSVP: React.FC = () => {
 
-  const { name, guestList } = useLocation().state;
-  const { slug } = useParams();
+  const { fetchData, info, isLoading, isMobile } = useContext(AppContext); 
+
+  const [name, setName ] = useState(useLocation().state?.name);
+  const [guestList, setGuestList] = useState(useLocation().state?.guestList);
+  const { id } = useParams();
+
   
   //Flags
   const [ moreGuests, setMoreGuests ] = useState(false);
   const [ isSubmitted, setIsSubmitted ] = useState(false);
+  const [ isSubmitting, setIsSubmitting ] = useState(false);
+  const allResponded = info && info.rsvpList.length === info.guests.filter((guest: any) => guest.slug === id).length;
 
   //Form data
   const [ rsvps, setRsvps ] = useState([name]);
   const [ rsvpAnswer, setRsvpAnswer ] = useState();
   const [ song, setSong ] = useState("");
-
-  const { fetchData } = useContext(AppContext); 
+  const [ error, setError ] = useState<null | string>(null);
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     const formData = new FormData();
 
@@ -39,7 +45,7 @@ const RSVP: React.FC = () => {
       mode: "no-cors",
       body: formData,
     })
-    .then(() => {setIsSubmitted(true); fetchData()})
+    .then(() => {setIsSubmitted(true); fetchData(); setIsSubmitting(false);})
   }
 
   const handleAttending = (e: any) => {
@@ -52,9 +58,36 @@ const RSVP: React.FC = () => {
     }
   }
 
+  console.log(isMobile)
+
+  const handleEnter = (e: any) => {
+
+    setError(null);
+
+    if (e.key === 'Enter') {
+      e.preventDefault();
+
+      if (info.rsvpList.includes(e.target.value)) {
+        setError('It seems you have already responded! If you have any concerns, please reach out to us at dimoandkimo@gmail.com :)')
+        return;
+      }
+      
+      for (let i=0; i < info.guests.length; i++) {
+        if (info.guests[i].name === e.target.value) {
+          if (info.guests[i].slug === id) {
+            setName(e.target.value)
+            setGuestList(info.guests.filter((guest: any) => guest.name !== e.target.value && guest.slug === id && !info.rsvpList.includes(guest.name) ))
+            setError(null);
+          } else {
+            setError('It appears that your name does not match the unique url for your group, please reach out to us at dimoandkimo@gmail.com :)')
+          }
+        }
+      }
+    }
+  }
   return (
   <Layout activeSection="rsvp">
-    <div className="form-container">
+    { isLoading ? <img className="pulse" src="/cupid.png"/> : <div className="form-container">
       <div className="heading">
         <span className="form-header">RSVP</span>
         <div className="form-subheader">
@@ -62,10 +95,12 @@ const RSVP: React.FC = () => {
           <span>Your response is kindly requested by the 30th of December 2024</span>
         </div>
       </div>
-      { !isSubmitted ? 
+      { allResponded ? <div>{`It seems all members of your group have responded. We appreciate the promptness! :)`}</div> : !isSubmitted ? 
         <form onSubmit={handleSubmit} className="form">
-        <RSVPInput fieldName="Name" fieldValue={name} disabled={true}/>
-        <div className="rsvp-container">
+        <RSVPInput fieldName="Name" fieldValue={name} disabled={name !== undefined} onEnter={handleEnter}/>
+        { error && <div>{error}</div>}
+        { name && !error &&
+        <><div className="rsvp-container">
           <Checkbox name="Joyfully accepts" checked={rsvpAnswer === "Joyfully accepts"} onChange={(e) => setRsvpAnswer(e.target.name)}/>
           <Checkbox name="Regretfully declines" checked={rsvpAnswer === "Regretfully declines"} onChange={(e) => setRsvpAnswer(e.target.name)}/>
         </div>
@@ -76,7 +111,7 @@ const RSVP: React.FC = () => {
             <div className="guest-list">
               { guestList.map((guest: any) => 
                 <div className="additional-guest">
-                  <Checkbox name={guest.name} onChange={(e) => handleAttending(e)}/>
+                  <Checkbox key={guest} name={guest.name} onChange={(e) => handleAttending(e)}/>
                 </div>
               )}
             </div>
@@ -84,11 +119,12 @@ const RSVP: React.FC = () => {
         </div>}
         <RSVPInput fieldName="What's a song that will get you on the dance floor?" fieldValue={song} onChange={(songSuggestions) => setSong(songSuggestions)}/>
         {
-          rsvpAnswer && <input className="input-button" type="submit" value="Submit"/>
+          rsvpAnswer && <input className="input-button" type="submit" value="Submit" disabled={isSubmitting}/>
         }
+        </>}
       </form> : <RSVPSubmitted />
       }
-    </div>
+    </div>}
   </Layout>
   )
 }
