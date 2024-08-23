@@ -152,3 +152,7 @@
 .submitted-container {
   margin-top: 30px;
 }
+
+@media (min-width: 1066px) {
+  
+}

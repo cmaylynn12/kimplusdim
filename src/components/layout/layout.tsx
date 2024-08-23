@@ -34,7 +34,7 @@ const Layout: React.FC<LayoutProps> = ({children, activeSection, title}: LayoutP
             <span></span>
           </div>
         }
-        <div className={`menu ${isMenuOpen ? 'show' : 'hide'}`}>
+        <div className={`menu ${isMenuOpen || !isMobile ? 'show' : 'hide'}`}>
             <MenuItem activeSection={activeSection} section='home' title='Home' urlPath='/'/>
             <MenuItem activeSection={activeSection} section= 'rsvp' title='RSVP' urlPath='/rsvp'/>
             {/* <MenuItem activeSection={activeSection} section= 'accommodation' title='Accommodation' urlPath='/accommodation' />

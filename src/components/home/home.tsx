@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   return (
     <Layout activeSection="home">
       <div className="container">
-        <img src="./icon.png" className="" height={650} width={650}/>
+        <img src="./icon.png" className="icon"/>
         <div className="venue-info">
           <span className="venue">at Island Art & Taste Gallery</span>
           <span className="address">Leoforos Poseidonos 66, Vari 166 72</span>

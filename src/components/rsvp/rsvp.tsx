@@ -22,10 +22,10 @@ const RSVP: React.FC = () => {
   const [ moreGuests, setMoreGuests ] = useState(false);
   const [ isSubmitted, setIsSubmitted ] = useState(false);
   const [ isSubmitting, setIsSubmitting ] = useState(false);
-  const allResponded = info && info.rsvpList.length === info.guests.filter((guest: any) => guest.slug === id).length;
+  const allResponded = info && info.guests.filter((guest: any) => guest.slug === id).every((person: any) => info.rsvpList.includes(person.name))
 
   //Form data
-  const [ rsvps, setRsvps ] = useState([name]);
+  const [ rsvps, setRsvps ] = useState(name ? [name]: []);
   const [ rsvpAnswer, setRsvpAnswer ] = useState();
   const [ song, setSong ] = useState("");
   const [ error, setError ] = useState<null | string>(null);
@@ -58,8 +58,6 @@ const RSVP: React.FC = () => {
     }
   }
 
-  console.log(isMobile)
-
   const handleEnter = (e: any) => {
 
     setError(null);
@@ -75,6 +73,7 @@ const RSVP: React.FC = () => {
       for (let i=0; i < info.guests.length; i++) {
         if (info.guests[i].name === e.target.value) {
           if (info.guests[i].slug === id) {
+            rsvps.push(e.target.value)
             setName(e.target.value)
             setGuestList(info.guests.filter((guest: any) => guest.name !== e.target.value && guest.slug === id && !info.rsvpList.includes(guest.name) ))
             setError(null);

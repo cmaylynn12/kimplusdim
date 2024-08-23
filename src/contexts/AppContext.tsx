@@ -26,10 +26,10 @@ export const AppWrapper: React.FC<AppWrapperProps> = ({ children }) => {
   const [ error, setError ] = useState<any>(null);
   const [ audio ] = useState(new Audio("/music.m4a"));
   const [ isMuted, setIsMuted ] = useState(true);
-  const [ isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+  const [ isMobile, setIsMobile] = useState(window.outerWidth <= 1065);
 
 const handleWindowSizeChange = () => {
-  setIsMobile(window.innerWidth <= 600);
+  setIsMobile(window.outerWidth <= 1065);
 }
 
 useEffect(() => {
