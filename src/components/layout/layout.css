@@ -34,10 +34,9 @@
 }
 
 .main {
-  width: 60%;
   margin: auto;
   text-align: center;
-  padding-bottom: 20px;
+  padding: 0 20px 30px 30px;
 }
 
 @media only screen and (max-width: 1065px) {
@@ -64,6 +63,7 @@
 
   .main {
     margin-top: 70px;
+    width: 60%;
   }
 }
 
