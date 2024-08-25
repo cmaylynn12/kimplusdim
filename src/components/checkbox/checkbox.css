@@ -32,3 +32,9 @@
 .checkbox-wrapper-62 .check:checked + label svg g path {
   stroke-dashoffset: 0;
 }
+
+.label {
+  gap: 5px;
+  display: flex;
+  align-items: center;
+}

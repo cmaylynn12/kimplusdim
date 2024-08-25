@@ -5,6 +5,7 @@ export interface AppState {
   isLoading: boolean;
   info: any;
   setInfo: (data: any) => void;
+  slugs: any;
   fetchData: () => void;
   unmute: () => void;
   mute: () => void;
@@ -22,6 +23,7 @@ export const AppContext = createContext<AppState>({} as AppState);
 export const AppWrapper: React.FC<AppWrapperProps> = ({ children }) => {
 
   const [ info, setInfo ] = useState();
+  const [ slugs, setSlugs ] = useState();
   const [ isLoading, setIsLoading ] = useState(true);
   const [ error, setError ] = useState<any>(null);
   const [ audio ] = useState(new Audio("/music.m4a"));
@@ -51,8 +53,10 @@ useEffect(() => {
     setIsLoading(true);
 
     try {
-      const response = await axios.get("https://script.google.com/macros/s/AKfycbx80gbBodG6b_u4ZIjK7WEz9RQdFFumPmLiA-kjKxU70MEGqzDqDqZjaRaqgBYurTDl/exec?type=info");
+      const response = await axios.get("https://script.google.com/macros/s/AKfycbx064RqE2URYeMBZTrKyn-29y4-EXmYD9Psy9lkkovNpzyNxlDQ5r6M014lrw-KCSo/exec?type=info");
       setInfo(response.data);
+      const slugs = await axios.get("https://script.google.com/macros/s/AKfycbx064RqE2URYeMBZTrKyn-29y4-EXmYD9Psy9lkkovNpzyNxlDQ5r6M014lrw-KCSo/exec?type=slugs");
+      setSlugs(slugs.data);
     } catch (error) {
       setError(error);
     } finally {
@@ -68,6 +72,7 @@ useEffect(() => {
     isLoading,
     info,
     setInfo,
+    slugs,
     fetchData,
     unmute,
     mute,

@@ -118,12 +118,16 @@
 }
 
 .input-button {
-  background-color: #61dafb;
-  height: 45px;
-  width: 120px;
+  background-color: #eb2678;
+  font-family: "Playfair";
+  color: white;
+  /* height: 45px;
+  width: 120px; */
   border: none;
-  border-radius: 25px;
+  /* border-radius: 25px; */
   cursor: pointer;
+  font-size: 20px;
+  padding: 12px 40px;
 }
 
 .input-button:disabled { 

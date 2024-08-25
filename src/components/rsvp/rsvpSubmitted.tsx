@@ -8,7 +8,7 @@ const RSVPSubmitted: React.FC = () => {
   return (
     <div className="submitted-container">
       <p className="rsvp-text">RSVP submitted, click here to go back to the home page!</p>
-      <button className="input-button" onClick={() => navigate('/')}>HOME</button>
+      <button className="input-button" onClick={() => navigate('/')}>Home</button>
     </div>
   )
 }

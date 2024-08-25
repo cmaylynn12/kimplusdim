@@ -11,12 +11,13 @@ import AppContext from "../../contexts/AppContext";
 
 const RSVP: React.FC = () => {
 
-  const { fetchData, info, isLoading, isMobile } = useContext(AppContext); 
+  const { fetchData, info, isLoading, slugs } = useContext(AppContext); 
 
   const [name, setName ] = useState(useLocation().state?.name);
   const [guestList, setGuestList] = useState(useLocation().state?.guestList);
   const { id } = useParams();
 
+  console.log(slugs)
   
   //Flags
   const [ moreGuests, setMoreGuests ] = useState(false);
@@ -40,7 +41,7 @@ const RSVP: React.FC = () => {
     formData.append("answer", rsvpAnswer === "Joyfully accepts" ? "Yes" : "No")
     formData.append("songRequest", song)
 
-    fetch("https://script.google.com/macros/s/AKfycbx80gbBodG6b_u4ZIjK7WEz9RQdFFumPmLiA-kjKxU70MEGqzDqDqZjaRaqgBYurTDl/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbx064RqE2URYeMBZTrKyn-29y4-EXmYD9Psy9lkkovNpzyNxlDQ5r6M014lrw-KCSo/exec", {
       method: "POST",
       mode: "no-cors",
       body: formData,
@@ -76,10 +77,14 @@ const RSVP: React.FC = () => {
             rsvps.push(e.target.value)
             setName(e.target.value)
             setGuestList(info.guests.filter((guest: any) => guest.name !== e.target.value && guest.slug === id && !info.rsvpList.includes(guest.name) ))
-            setError(null);
+            setError(null);;
+            return;
           } else {
-            setError('It appears that your name does not match the unique url for your group, please reach out to us at dimoandkimo@gmail.com :)')
+            setError('It appears that your name does not match the unique url for your group, please reach out to us at dimoandkimo@gmail.com :)');
+            return;
           }
+        } else {
+          setError('Hmm, something went wrong there. Please ensure you are entering your name as stated in the invite, otherwise please contact us at dimoandkimo@gmail.com')
         }
       }
     }
@@ -94,7 +99,7 @@ const RSVP: React.FC = () => {
           <span>Your response is kindly requested by the 30th of December 2024</span>
         </div>
       </div>
-      { allResponded ? <div>{`It seems all members of your group have responded. We appreciate the promptness! :)`}</div> : !isSubmitted ? 
+      { allResponded && !isSubmitted ? <div>{`It seems all members of your group have responded. We appreciate the promptness! :)`}</div> : !isSubmitted ? 
         <form onSubmit={handleSubmit} className="form">
         <RSVPInput fieldName="Name" fieldValue={name} disabled={name !== undefined} onEnter={handleEnter}/>
         { error && <div>{error}</div>}
