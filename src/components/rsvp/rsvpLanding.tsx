@@ -51,9 +51,7 @@ const RSVPLanding: React.FC = () => {
         </div>
         <RSVPInput fieldName={"Name"} fieldValue={name} disabled={false} onChange={(name) => {setName(name); setError(null)}} />
         { error && <div>{error}</div>}
-        { name && !error && (
-          <input className="input-button" type="submit" value="Continue"/>
-        )}
+        <input className="input-button" type="submit" value="Continue" disabled={!name && !error}/>
       </form>
     </div>
       }

@@ -37,6 +37,7 @@
   margin: auto;
   text-align: center;
   padding: 0 20px 30px 30px;
+  margin-top: 50px;
 }
 
 @media only screen and (max-width: 1065px) {
@@ -102,7 +103,7 @@
   position: absolute;
   height: 5px;
   width: 100%;
-  background: black;
+  background: #eb2678;
   border-radius: 9px;
   opacity: 1;
   left: 0;

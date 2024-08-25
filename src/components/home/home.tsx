@@ -11,7 +11,7 @@ const Home: React.FC = () => {
       <div className="container">
         <img src="./icon.png" className="icon"/>
         <div className="venue-info">
-          <span className="venue">at Island Art & Taste Gallery</span>
+          <span className="venue">Island Art & Taste Gallery</span>
           <span className="address">Leoforos Poseidonos 66, Vari 166 72</span>
         </div>
         <button className="input-button" onClick={() => navigate('/rsvp')}>RSVP</button>

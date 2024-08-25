@@ -31,6 +31,9 @@ const RSVP: React.FC = () => {
   const [ song, setSong ] = useState("");
   const [ error, setError ] = useState<null | string>(null);
 
+  //TEST
+  const [ currentGuest, setCurrentGuest ] = useState(name ? name : undefined);
+
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -59,24 +62,40 @@ const RSVP: React.FC = () => {
     }
   }
 
-  const handleEnter = (e: any) => {
+  const getGuest = (guestList: any[], guestName: string) => {
+    for (let i=0; i < guestList.length; i++) {
+      if (guestList[i].name === guestName) {
+        return guestList[i];
+      }
+    }
+    return false;
+  }
 
-    setError(null);
+  const handleRsvp = (e: any) => {
+    if (rsvpAnswer === e.target.name) {
+      setRsvpAnswer(undefined);
+    } else {
+      setRsvpAnswer(e.target.name)
+    }
+  }
 
-    if (e.key === 'Enter') {
-      e.preventDefault();
+  const handleContinue = (e: any) => {
+    e.preventDefault();
 
-      if (info.rsvpList.includes(e.target.value)) {
+      if (info.rsvpList.includes(name)) {
         setError('It seems you have already responded! If you have any concerns, please reach out to us at dimoandkimo@gmail.com :)')
         return;
       }
+      if (getGuest(info.guests, name)) {
+        setCurrentGuest(getGuest(info.guests, name))
+      }
       
       for (let i=0; i < info.guests.length; i++) {
-        if (info.guests[i].name === e.target.value) {
+        if (info.guests[i].name === name) {
           if (info.guests[i].slug === id) {
-            rsvps.push(e.target.value)
-            setName(e.target.value)
-            setGuestList(info.guests.filter((guest: any) => guest.name !== e.target.value && guest.slug === id && !info.rsvpList.includes(guest.name) ))
+            rsvps.push(name)
+            // setName(e.target.value)
+            setGuestList(info.guests.filter((guest: any) => guest.name !== name && guest.slug === id && !info.rsvpList.includes(guest.name) ))
             setError(null);;
             return;
           } else {
@@ -85,10 +104,21 @@ const RSVP: React.FC = () => {
           }
         } else {
           setError('Hmm, something went wrong there. Please ensure you are entering your name as stated in the invite, otherwise please contact us at dimoandkimo@gmail.com')
+
         }
       }
+  }
+
+  const handleEnter = (e: any) => {
+
+    setError(null);
+
+    if (e.key === 'Enter') {
+      handleContinue(e);
     }
   }
+
+
   return (
   <Layout activeSection="rsvp">
     { isLoading ? <img className="pulse" src="/cupid.png"/> : !slugs.includes(id) ? <LinkError /> : <div className="form-container">
@@ -101,14 +131,15 @@ const RSVP: React.FC = () => {
       </div>
       { allResponded && !isSubmitted ? <div>{`It seems all members of your group have responded. We appreciate the promptness! :)`}</div> : !isSubmitted ? 
         <form onSubmit={handleSubmit} className="form">
-        <RSVPInput fieldName="Name" fieldValue={name} disabled={name !== undefined} onEnter={handleEnter}/>
+        <RSVPInput fieldName="Name" fieldValue={name} disabled={currentGuest !== undefined} onEnter={handleEnter} onChange={(name) => setName(name)} />
         { error && <div>{error}</div>}
-        { name && !error &&
+        { currentGuest && !error &&
         <><div className="rsvp-container">
-          <Checkbox name="Joyfully accepts" checked={rsvpAnswer === "Joyfully accepts"} onChange={(e) => setRsvpAnswer(e.target.name)}/>
-          <Checkbox name="Regretfully declines" checked={rsvpAnswer === "Regretfully declines"} onChange={(e) => setRsvpAnswer(e.target.name)}/>
+          <Checkbox name="Joyfully accepts" checked={rsvpAnswer === "Joyfully accepts"} onChange={(e) => handleRsvp(e)}/>
+          <Checkbox name="Regretfully declines" checked={rsvpAnswer === "Regretfully declines"} onChange={(e) => handleRsvp(e)}/>
         </div>
-        { guestList.length >= 1 && 
+        <hr className="border"/>
+        { guestList && guestList.length >= 1 && 
         <div className="guest-list-container">
           <Checkbox name="Are you rsvp-ing on behalf of anyone else?" onChange={() => {setMoreGuests(!moreGuests); setRsvps([name])}}/>
           { moreGuests && (
@@ -122,10 +153,9 @@ const RSVP: React.FC = () => {
           )}
         </div>}
         <RSVPInput fieldName="What's a song that will get you on the dance floor?" fieldValue={song} onChange={(songSuggestions) => setSong(songSuggestions)}/>
-        {
-          rsvpAnswer && <input className="input-button" type="submit" value="Submit" disabled={isSubmitting}/>
-        }
+        <input className="input-button" type="submit" value="Submit" disabled={!rsvpAnswer || isSubmitting}/>
         </>}
+        {!currentGuest && <button className="input-button" disabled={!name} onClick={handleContinue}>Continue</button>}
       </form> : <RSVPSubmitted />
       }
     </div>}
