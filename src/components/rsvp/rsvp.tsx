@@ -1,5 +1,5 @@
 import { useLocation, useParams } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import "./rsvp.css";
 import RSVPSubmitted from "./rsvpSubmitted";
@@ -7,6 +7,7 @@ import Checkbox from "../checkbox/checkbox";
 import RSVPInput from "../input/input";
 import Layout from "../layout/layout";
 import AppContext from "../../contexts/AppContext";
+import LinkError from "../errors/linkError";
 
 
 const RSVP: React.FC = () => {
@@ -17,12 +18,11 @@ const RSVP: React.FC = () => {
   const [guestList, setGuestList] = useState(useLocation().state?.guestList);
   const { id } = useParams();
 
-  console.log(slugs)
-  
   //Flags
   const [ moreGuests, setMoreGuests ] = useState(false);
   const [ isSubmitted, setIsSubmitted ] = useState(false);
   const [ isSubmitting, setIsSubmitting ] = useState(false);
+
   const allResponded = info && info.guests.filter((guest: any) => guest.slug === id).every((person: any) => info.rsvpList.includes(person.name))
 
   //Form data
@@ -41,7 +41,7 @@ const RSVP: React.FC = () => {
     formData.append("answer", rsvpAnswer === "Joyfully accepts" ? "Yes" : "No")
     formData.append("songRequest", song)
 
-    fetch("https://script.google.com/macros/s/AKfycbx064RqE2URYeMBZTrKyn-29y4-EXmYD9Psy9lkkovNpzyNxlDQ5r6M014lrw-KCSo/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbz73bSC5tdN1sNAtXAEY-UTpFGXqjM4MOq6rXDKdrgVz058ebSnNjz6JxxPCu5yVPEu/exec", {
       method: "POST",
       mode: "no-cors",
       body: formData,
@@ -91,7 +91,7 @@ const RSVP: React.FC = () => {
   }
   return (
   <Layout activeSection="rsvp">
-    { isLoading ? <img className="pulse" src="/cupid.png"/> : <div className="form-container">
+    { isLoading ? <img className="pulse" src="/cupid.png"/> : !slugs.includes(id) ? <LinkError /> : <div className="form-container">
       <div className="heading">
         <span className="form-header">RSVP</span>
         <div className="form-subheader">

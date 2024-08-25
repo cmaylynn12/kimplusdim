@@ -4,7 +4,7 @@ import './fonts/IrishBelle.ttf';
 
 import Home from './components/home/home';
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Wedding from './components/wedding/wedding';
 import RSVP from './components/rsvp/rsvp';
 import Activities from './components/activities/activities';
@@ -30,6 +30,7 @@ function App() {
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/rsvp/:id" element={<RSVP />} />
           <Route path="/rsvp/error" element={<RSVPError />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
     </AppWrapper>

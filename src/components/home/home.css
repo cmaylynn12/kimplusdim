@@ -1,5 +1,5 @@
 .address {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .container {
@@ -10,12 +10,12 @@
 }
 
 .icon {
-  height: 500px;
-  width: 500px;
+  height: 100%;
+  width: 100%;
 }
 
 .venue {
-  font-size: 35px;
+  font-size: 28px;
 }
 
 .venue-info {
