@@ -39,15 +39,6 @@
   width: 80%;
 }
 
-.landing-form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 40px 30px;
-}
-
 .form-container { 
   display: flex;
   flex-direction: column;
@@ -75,15 +66,16 @@
   display: flex;
   flex-direction: column;
   font-family: "Playfair";
-  font-size: 32px;
+  font-size: 25px;
 
   > p {
     margin: 15px 0;
   }
 
   > div {
-    font-size: 20px;
+    font-size: 15px;
   }
+
 }
 
 .guest-list {
@@ -138,8 +130,16 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding: 0 50px;
   align-items: center;
+}
+
+.landing-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 40px 30px;
 }
 
 .rsvp-container {
@@ -158,6 +158,20 @@
 }
 
 @media (min-width: 1066px) {
+
+  .form-text {
+    font-size: 32px;
+
+    > div {
+      font-size: 20px;
+    }
+  }
+
+  .landing-form {
+    padding: 0 50px;
+
+  }
+
   .landing-form-container {
     padding: 80px;
   }
