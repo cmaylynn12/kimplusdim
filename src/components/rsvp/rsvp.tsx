@@ -152,7 +152,7 @@ const RSVP: React.FC = () => {
             </div>
           )}
         </div>}
-        <RSVPInput fieldName="What's a song that will get you on the dance floor?" fieldValue={song} onChange={(songSuggestions) => setSong(songSuggestions)}/>
+        <RSVPInput fieldName="Any song requests?" fieldValue={song} onChange={(songSuggestions) => setSong(songSuggestions)}/>
         <input className="input-button" type="submit" value="Submit" disabled={!rsvpAnswer || isSubmitting}/>
         </>}
         {!currentGuest && <button className="input-button" disabled={!name} onClick={handleContinue}>Continue</button>}
