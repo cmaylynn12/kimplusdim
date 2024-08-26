@@ -3,6 +3,7 @@ import MenuItem from '../menuItem/menuItem';
 import './layout.css';
 import AppContext from '../../contexts/AppContext';
 import clsx from 'clsx';
+import Loader from '../loader/loader';
 
 interface LayoutProps {
   children?: React.ReactNode;

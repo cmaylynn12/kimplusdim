@@ -8,6 +8,7 @@ import RSVPInput from "../input/input";
 import Layout from "../layout/layout";
 import AppContext from "../../contexts/AppContext";
 import LinkError from "../errors/linkError";
+import Loader from "../loader/loader";
 
 
 const RSVP: React.FC = () => {
@@ -121,7 +122,7 @@ const RSVP: React.FC = () => {
 
   return (
   <Layout activeSection="rsvp">
-    { isLoading ? <img className="pulse" src="/cupid.png"/> : !slugs.includes(id) ? <LinkError /> : <div className="form-container">
+    { isLoading || isSubmitting ? <Loader /> : !slugs.includes(id) ? <LinkError /> : <div className="form-container">
       <div className="heading">
         <span className="form-header">RSVP</span>
         <div className="form-subheader">

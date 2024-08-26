@@ -5,6 +5,7 @@ import Layout from "../layout/layout";
 import "./rsvp.css";
 import AppContext from "../../contexts/AppContext";
 import RSVPInput from "../input/input";
+import Loader from "../loader/loader";
 
 const RSVPLanding: React.FC = () => {
 
@@ -40,7 +41,7 @@ const RSVPLanding: React.FC = () => {
 
   return (
     <Layout activeSection="rsvp" title="RSVP">
-      { isLoading ? <img className="pulse" src="/cupid.png" height={200} width={200}/> : 
+      { isLoading ? <Loader /> : 
       <div className="landing-form-container">
       <img src="/cupid.png" height={200} width={200}/>
 
