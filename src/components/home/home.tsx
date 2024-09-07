@@ -5,10 +5,14 @@ import './home.css';
 const Home: React.FC = () => {
 
   const navigate = useNavigate();
+  const today = new Date().getTime();
+  const weddingDay = new Date("May 29, 2025 00:00:00").getTime();
+  const daysUntil = Math.floor((weddingDay - today)/(1000 * 60 * 60 * 24));
 
   return (
     <Layout activeSection="home">
       <div className="container">
+        {/* <div className="days">{daysUntil} days to go!</div> */}
         <img src="./icon.png" className="icon"/>
         <div className="venue-info">
           <span className="venue">Island Art & Taste Gallery</span>

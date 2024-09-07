@@ -14,6 +14,7 @@ import Registry from './components/registry/registry';
 import RSVPLanding from './components/rsvp/rsvpLanding';
 import RSVPError from './components/rsvp/rsvpError';
 import { AppWrapper } from './contexts/AppContext';
+import Information from './components/information/info';
 
 function App() {
   
@@ -25,6 +26,7 @@ function App() {
           <Route path="/accommodation" element={<Accommodation />} />
           <Route path="/wedding" element={<Wedding />} />
           <Route path="/rsvp" element={<RSVPLanding />} />
+          <Route path="/information" element={<Information />} />
           <Route path="/registry" element={<Registry />} />
           <Route path="/activities" element={<Activities />} />
           <Route path="/faqs" element={<FAQs />} />

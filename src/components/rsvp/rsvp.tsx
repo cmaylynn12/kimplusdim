@@ -24,8 +24,6 @@ const RSVP: React.FC = () => {
   const [ isSubmitted, setIsSubmitted ] = useState(false);
   const [ isSubmitting, setIsSubmitting ] = useState(false);
 
-  const allResponded = info && info.guests.filter((guest: any) => guest.slug === id).every((person: any) => info.rsvpList.includes(person.name))
-
   //Form data
   const [ rsvps, setRsvps ] = useState(name ? [name]: []);
   const [ rsvpAnswer, setRsvpAnswer ] = useState();
@@ -34,6 +32,8 @@ const RSVP: React.FC = () => {
 
   //TEST
   const [ currentGuest, setCurrentGuest ] = useState(name ? name : undefined);
+  const allResponded = info && info.guests.filter((guest: any) => guest.slug === id).every((person: any) => info.rsvpList.includes(person.name))
+
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -45,7 +45,7 @@ const RSVP: React.FC = () => {
     formData.append("answer", rsvpAnswer === "Joyfully accepts" ? "Yes" : "No")
     formData.append("songRequest", song)
 
-    fetch("https://script.google.com/macros/s/AKfycbz73bSC5tdN1sNAtXAEY-UTpFGXqjM4MOq6rXDKdrgVz058ebSnNjz6JxxPCu5yVPEu/exec", {
+    fetch(`${process.env.REACT_APP_API_URL}`, {
       method: "POST",
       mode: "no-cors",
       body: formData,
@@ -63,14 +63,14 @@ const RSVP: React.FC = () => {
     }
   }
 
-  const getGuest = (guestList: any[], guestName: string) => {
-    for (let i=0; i < guestList.length; i++) {
-      if (guestList[i].name === guestName) {
-        return guestList[i];
-      }
-    }
-    return false;
-  }
+  // const getGuest = (guestList: any[], guestName: string) => {
+  //   for (let i=0; i < guestList.length; i++) {
+  //     if (guestList[i].name === guestName) {
+  //       return guestList[i];
+  //     }
+  //   }
+  //   return false;
+  // }
 
   const handleRsvp = (e: any) => {
     if (rsvpAnswer === e.target.name) {
@@ -87,17 +87,15 @@ const RSVP: React.FC = () => {
         setError('It seems you have already responded! If you have any concerns, please reach out to us at dimoandkimo@gmail.com :)')
         return;
       }
-      if (getGuest(info.guests, name)) {
-        setCurrentGuest(getGuest(info.guests, name))
-      }
       
       for (let i=0; i < info.guests.length; i++) {
         if (info.guests[i].name === name) {
           if (info.guests[i].slug === id) {
             rsvps.push(name)
             // setName(e.target.value)
+            setCurrentGuest(info.guests[i])
             setGuestList(info.guests.filter((guest: any) => guest.name !== name && guest.slug === id && !info.rsvpList.includes(guest.name) ))
-            setError(null);;
+            setError(null);
             return;
           } else {
             setError('It appears that your name does not match the unique url for your group, please reach out to us at dimoandkimo@gmail.com :)');
@@ -108,6 +106,12 @@ const RSVP: React.FC = () => {
 
         }
       }
+
+      // if (getGuest(info.guests, name)) {
+      //   console.log(name)
+      //   console.log('here')
+      //   setCurrentGuest(getGuest(info.guests, name))
+      // }
   }
 
   const handleEnter = (e: any) => {

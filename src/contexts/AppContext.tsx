@@ -53,9 +53,9 @@ useEffect(() => {
     setIsLoading(true);
 
     try {
-      const response = await axios.get("https://script.google.com/macros/s/AKfycbz73bSC5tdN1sNAtXAEY-UTpFGXqjM4MOq6rXDKdrgVz058ebSnNjz6JxxPCu5yVPEu/exec?type=info");
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}?type=info`);
       setInfo(response.data);
-      const slugs = await axios.get("https://script.google.com/macros/s/AKfycbz73bSC5tdN1sNAtXAEY-UTpFGXqjM4MOq6rXDKdrgVz058ebSnNjz6JxxPCu5yVPEu/exec?type=slugs");
+      const slugs = await axios.get(`${process.env.REACT_APP_API_URL}?type=slugs`);
       setSlugs(slugs.data);
     } catch (error) {
       setError(error);

@@ -9,6 +9,10 @@
   align-items: center;
 }
 
+.days {
+  font-size: 28px;
+}
+
 .icon {
   height: 100%;
   width: 100%;
@@ -29,13 +33,18 @@
 
 
 @media (min-width: 660px) {
-  .icon {
-    height: 650px;
-    width: 650px;
-  }
 
   .address {
     font-size: 25px;
+  }
+
+  .days {
+    font-size: 40px;
+  }
+
+  .icon {
+    height: 650px;
+    width: 650px;
   }
 
   .venue {

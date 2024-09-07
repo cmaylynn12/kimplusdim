@@ -27,7 +27,6 @@ const RSVPLanding: React.FC = () => {
           return;
         } else {
           setError('It seems you have already responded! If you have any concerns, please reach out to us at dimoandkimo@gmail.com :)')
-          // navigate("/rsvp/error", { state: { error: 'It seems you have already rsvp to the wedding! If you have any concerns, please reach out to us at dimoandkimo@gmail.com :)'}})
           return;
         }
       }
@@ -35,7 +34,6 @@ const RSVPLanding: React.FC = () => {
     
     if (!invited) {
       setError('Hmm, something went wrong there. Please ensure you are entering your name as stated in the invite, otherwise please contact us at dimoandkimo@gmail.com')
-      // navigate("/rsvp/error", { state: { error: 'Hmm, something went wrong there. Please ensure you are entering your name as stated in the invite, otherwise please contact us at dimoandkimo@gmail.com'}})
     }
   }
 
