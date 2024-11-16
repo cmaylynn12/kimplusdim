@@ -11,7 +11,7 @@
   width: 80%;
 }
 
-.form-container { 
+.form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,7 +47,6 @@
   > div {
     font-size: 18px;
   }
-
 }
 
 .guest-list {
@@ -83,7 +82,7 @@
 }
 
 .input-button {
-  background-color: #eb2678;
+  background-color: #2a46e2;
   font-family: "Playfair";
   color: white;
   border: none;
@@ -98,15 +97,8 @@
   cursor: not-allowed;
 }
 
-.input-button:disabled { 
+.input-button:disabled {
   cursor: not-allowed;
-}
-
-.landing-form {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center;
 }
 
 label > svg {
@@ -115,6 +107,22 @@ label > svg {
 
 .label {
   text-align: start;
+}
+
+.landing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.landing-form.expanded {
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 4s ease, opacity 200ms ease;
 }
 
 .landing-form-container {
@@ -126,6 +134,34 @@ label > svg {
   padding: 40px 30px;
 }
 
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .rsvp-container {
   display: flex;
   flex-direction: column;
@@ -134,10 +170,7 @@ label > svg {
 .rsvp-text {
   font-family: "Playfair";
   font-size: 20px;
-}
-
-.submitted-container {
-  margin-top: 30px;
+  user-select: none;
 }
 
 @media (min-width: 700px) {
@@ -153,7 +186,6 @@ label > svg {
 }
 
 @media (min-width: 1066px) {
-
   .form-container {
     padding: 80px;
   }
@@ -168,11 +200,9 @@ label > svg {
 
   .landing-form {
     padding: 0 50px;
-
   }
 
   .landing-form-container {
-    padding: 80px;
+    padding: 60px;
   }
-
 }

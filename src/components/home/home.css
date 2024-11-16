@@ -23,7 +23,7 @@
 }
 
 .venue-info {
-  margin-top: 10px;
+  margin-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -31,11 +31,9 @@
   align-items: center;
 }
 
-
 @media (min-width: 660px) {
-
   .address {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   .days {
@@ -43,13 +41,11 @@
   }
 
   .icon {
-    height: 650px;
-    width: 650px;
+    height: 575px;
+    width: 575px;
   }
 
   .venue {
-    font-size: 40px;
+    font-size: 36px;
   }
 }
-
-
