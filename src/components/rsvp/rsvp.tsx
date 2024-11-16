@@ -41,7 +41,7 @@ const RSVP: React.FC = () => {
     },
     onSuccess: () => {
       setIsSubmitted(true);
-      setIsSubmitting(false);
+      // setIsSubmitting(false);
       window.history.replaceState(null, "");
       queryClient.invalidateQueries({ queryKey: ["get-info"] });
     },
@@ -50,6 +50,7 @@ const RSVP: React.FC = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
+    // setIsSubmitted(true);
 
     const formData = new FormData();
 
@@ -85,7 +86,7 @@ const RSVP: React.FC = () => {
       <div className="form-container">
         <div className="heading">
           <span className="form-header">RSVP</span>
-          {!isSubmitted && (
+          {!isSubmitting && (
             <div className="form-subheader">
               <span>We look forward to celebrating with you!</span>
               <span>
@@ -94,7 +95,7 @@ const RSVP: React.FC = () => {
             </div>
           )}
         </div>
-        {!isSubmitted ? (
+        {!isSubmitting ? (
           <form onSubmit={handleSubmit} className="form">
             <RSVPInput fieldName="Name" fieldValue={name} disabled />
             <div className="rsvp-container">
@@ -145,6 +146,7 @@ const RSVP: React.FC = () => {
         ) : (
           <RSVPSubmitted
             accepted={rsvpAnswer === "Joyfully accepts" ? true : false}
+            isSubmitted={isSubmitted}
           />
         )}
       </div>

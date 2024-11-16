@@ -4,21 +4,26 @@ import Message from "../message/message";
 
 interface RSVPSubmittedProps {
   accepted: boolean;
+  isSubmitted: boolean;
 }
 
-const RSVPSubmitted: React.FC<RSVPSubmittedProps> = ({ accepted }) => {
+const RSVPSubmitted: React.FC<RSVPSubmittedProps> = ({
+  accepted,
+  isSubmitted,
+}) => {
   const navigate = useNavigate();
 
   return (
-    <div className="rsvp-text">
+    <div className={`rsvp-text ${isSubmitted ? "expanded" : ""}`}>
+      <div>
+        <img src="/cupid.png" height={250} width={250} className="cupido" />
+      </div>
+
       {accepted ? (
-        <Message message="AMAZING, we can't wait to celebrate with you!" />
+        <Message message="Excellent! Your decision to RSVP ‘yes’ is both commendable and... dare I say, expected. We shall await you with great anticipation." />
       ) : (
-        <Message message="Sad to hear you won't be able to join us. But if you do change your mind before the rsvp date, we'll have a seat waiting!" />
+        <Message message="Now that’s a real shame. A real shame. We’ll be missin’ ya, but I reckon you got your reasons. Don’t worry—there’ll be a drink raised in your honor." />
       )}
-      <p style={{ fontSize: "16px" }}>
-        Click here to go back to the home page!
-      </p>
       <button className="input-button" onClick={() => navigate("/")}>
         Home
       </button>

@@ -7,7 +7,6 @@
   justify-content: left;
 }
 
-
 .menu {
   margin-top: 40px;
   display: flex;
@@ -50,10 +49,9 @@
   }
 }
 
-
 @media only screen and (min-width: 1066px) {
   .menu {
-    margin-left: 50px;
+    margin-left: 36px;
     display: flex;
     flex-direction: column;
     justify-content: center;

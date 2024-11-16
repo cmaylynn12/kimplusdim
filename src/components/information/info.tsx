@@ -6,14 +6,22 @@ const Information: React.FC = () => {
     <Layout activeSection="info" title="INFORMATION">
       <div className="info">
         <div className="info-header">
-          Weather
+          Welcome to Our Big Fat Greek Wedding! 🇬🇷
         </div>
         <div className="info-subheader">
-          Athens is expected to offer beautiful weather, perfect for an outdoor wedding. The late spring climate typically features warm temperatures, averaging around 25°C, with plenty of sunshine and gentle breezes. The days are long, allowing for extended daylight hours to enjoy outdoor ceremonies and receptions. Rain is very rare during this time, so you can anticipate clear skies and a comfortable and pleasant atmosphere!
+          We’re so excited to celebrate our love in the heart of Greece, and
+          even more excited to have you join us! Here’s everything you need to
+          know to plan your trip to Athens and make our wedding unforgettable.{" "}
+        </div>
+        <div>Getting to Athens</div>
+        <div>
+          Athens is easily accessible with direct flights from many
+          international cities. The main airport is Athens International Airport
+          (ATH)
         </div>
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export default Information;

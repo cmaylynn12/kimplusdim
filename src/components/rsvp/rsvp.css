@@ -2,6 +2,11 @@
   width: 100%;
 }
 
+div > p {
+  font-family: "Playfair";
+  font-size: 20px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -68,6 +73,9 @@
   gap: 30px;
 }
 
+.hidden-container {
+}
+
 .home-button {
   font-family: "Fermino";
   width: 150px;
@@ -90,6 +98,7 @@
   cursor: pointer;
   font-size: 20px;
   padding: 12px 40px;
+  margin-top: 24px;
 }
 
 .input-button:disabled {
@@ -171,6 +180,15 @@ label > svg {
   font-family: "Playfair";
   font-size: 20px;
   user-select: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.rsvp-text.expanded {
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 4s ease, opacity 200ms ease;
 }
 
 @media (min-width: 700px) {
