@@ -33,7 +33,7 @@ const Accommodation: React.FC = () => {
           </div>
         </div>
         <div className="area-container">
-          <div className="region">Athenian Riviera</div>
+          <div className="region">✨Athenian Riviera✨</div>
           <div className="accommodation-container">
             <AccommodationItem
               area="Vouliagmeni"

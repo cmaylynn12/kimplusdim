@@ -1,5 +1,22 @@
-
 .info {
   display: flex;
   flex-direction: column;
+  gap: 40px;
+}
+
+.info-header,
+.info-subheader {
+  font-family: "Playfair";
+}
+
+.info-header {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.info-subheader {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./accommodationItem.css";
 
 interface AccommodationItemProps {
@@ -13,13 +14,16 @@ const AccommodationItem: React.FC<AccommodationItemProps> = ({
   description,
   header,
 }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className="accommodation-card"
       style={{ backgroundImage: imageUrl ? imageUrl : "" }}
+      onClick={() => navigate(`/accommodation/${area.toLowerCase()}`)}
     >
-      <div>{area}</div>
-      <div>{header}</div>
+      <div className="area">{area}</div>
+      <div className="accommodation-header">{header}</div>
       <div className="description">{description}</div>
     </div>
   );

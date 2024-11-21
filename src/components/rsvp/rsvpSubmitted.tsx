@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./rsvp.css";
 import Message from "../message/message";
+import { RSVP_MESSAGES } from "../../rsvpMessages";
 
 interface RSVPSubmittedProps {
   accepted: boolean;
@@ -12,11 +13,18 @@ const RSVPSubmitted: React.FC<RSVPSubmittedProps> = ({
   isSubmitted,
 }) => {
   const navigate = useNavigate();
+  const guest = useLocation().state?.name as string;
 
   return (
     <div className={`rsvp-text ${isSubmitted ? "expanded" : ""}`}>
       {accepted ? (
-        <Message message="Excellent! Your decision to RSVP ‘yes’ is both commendable and... dare I say, expected. We shall await you with great anticipation." />
+        <Message
+          message={
+            guest === "Cheok Seng Lee"
+              ? RSVP_MESSAGES[guest]
+              : RSVP_MESSAGES.others
+          }
+        />
       ) : (
         <Message message="Now that’s a real shame. A real shame. We’ll be missin’ ya, but I reckon you got your reasons. Don’t worry—there’ll be a drink raised in your honor." />
       )}
