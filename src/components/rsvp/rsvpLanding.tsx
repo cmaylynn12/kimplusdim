@@ -59,6 +59,7 @@ const RSVPLanding: React.FC = () => {
     <Layout activeSection="rsvp" title="RSVP">
       <div className="landing-form-container">
         <img
+          alt="pic of cupid"
           src="/cupid-arrow.png"
           height={200}
           width={200}

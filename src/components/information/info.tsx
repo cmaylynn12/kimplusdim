@@ -3,7 +3,7 @@ import "./info.css";
 
 const Information: React.FC = () => {
   return (
-    <Layout activeSection="info" title="INFORMATION">
+    <Layout activeSection="info" title="Information">
       <div className="info">
         <div className="info-header">
           Welcome to Our Big Fat Greek Wedding! 🇬🇷

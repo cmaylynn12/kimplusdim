@@ -14,7 +14,8 @@ interface LayoutProps {
     | "registry"
     | "activities"
     | "faqs"
-    | "info";
+    | "info"
+    | "culture";
   title?: string;
 }
 
@@ -70,6 +71,12 @@ const Layout: React.FC<LayoutProps> = ({
               section="accommodation"
               title="Accommodation"
               urlPath="/accommodation"
+            />
+            <MenuItem
+              activeSection={activeSection}
+              section="culture"
+              title="Culture"
+              urlPath="/culture"
             />
             {/*<MenuItem activeSection={activeSection} section= 'wedding' title='Wedding' urlPath='/wedding' />
             <MenuItem activeSection={activeSection} section= 'activities' title='Things to Do' urlPath='/activities' />

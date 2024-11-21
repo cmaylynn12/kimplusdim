@@ -144,10 +144,19 @@ const RSVP: React.FC = () => {
             />
           </form>
         ) : (
-          <RSVPSubmitted
-            accepted={rsvpAnswer === "Joyfully accepts" ? true : false}
-            isSubmitted={isSubmitted}
-          />
+          <>
+            <img
+              alt="pic of cupid"
+              src="/cupid.png"
+              height={250}
+              width={250}
+              className={!isSubmitted ? "pulse" : ""}
+            />
+            <RSVPSubmitted
+              accepted={rsvpAnswer === "Joyfully accepts" ? true : false}
+              isSubmitted={isSubmitted}
+            />
+          </>
         )}
       </div>
     </Layout>

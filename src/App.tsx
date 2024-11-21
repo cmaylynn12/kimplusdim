@@ -17,6 +17,7 @@ import { AppWrapper } from "./contexts/AppContext";
 import Information from "./components/information/info";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LinkError from "./components/errors/linkError";
+import Culture from "./components/culture/culture";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/rsvp/form" element={<RSVP />} />
             <Route path="/rsvp/error" element={<RSVPError />} />
+            <Route path="/culture" element={<Culture />} />
             <Route path="*" element={<LinkError />} />
           </Routes>
         </BrowserRouter>

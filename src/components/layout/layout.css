@@ -12,7 +12,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 10px;
   /* margin-top: 40px;
   width: 20%;
@@ -42,6 +41,7 @@
 @media only screen and (max-width: 1065px) {
   .menu a {
     text-align: center;
+    font-size: 28px;
   }
 
   .header {
@@ -55,14 +55,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 10px;
     position: absolute;
   }
 
   .main {
     margin-top: 70px;
-    width: 60%;
+    width: 55%;
   }
 }
 
