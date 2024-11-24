@@ -27,10 +27,7 @@ const RSVPLanding: React.FC = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    console.log(name.toLowerCase());
-
     if (data.rsvpList.includes(name.toLowerCase())) {
-      console.log("already in");
       setError(
         "It seems you have already responded! If you think this might be a mistake, please reach out to us :)"
       );
