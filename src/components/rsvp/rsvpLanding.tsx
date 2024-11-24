@@ -11,6 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const RSVPLanding: React.FC = () => {
   const navigate = useNavigate();
+  const { isMobile } = useContext(AppContext);
   const [name, setName] = useState("");
 
   const [error, setError] = useState<null | string>(null);
@@ -61,8 +62,8 @@ const RSVPLanding: React.FC = () => {
         <img
           alt="pic of cupid"
           src="/cupid-arrow.png"
-          height={200}
-          width={200}
+          height={isMobile ? 150 : 200}
+          width={isMobile ? 150 : 200}
           className={isFetching ? "pulse" : ""}
         />
         <form
@@ -70,7 +71,7 @@ const RSVPLanding: React.FC = () => {
           className={`landing-form ${isFetching ? "" : "expanded"}`}
         >
           <div className="form-text">
-            <p>Please enter your name as stated in the invitation.</p>
+            <div>Please enter your name as stated in the invitation.</div>
             <div>
               If you're responding for you and on behalf of others, you'll be
               able to RSVP for your entire group on the next page.

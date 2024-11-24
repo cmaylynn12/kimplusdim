@@ -13,6 +13,8 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
 const RSVP: React.FC = () => {
+  const { isMobile } = useContext(AppContext);
+
   const [name, setName] = useState(useLocation().state?.name);
   const guestList = useLocation().state?.guestList;
 
@@ -148,8 +150,8 @@ const RSVP: React.FC = () => {
             <img
               alt="pic of cupid"
               src="/cupid.png"
-              height={250}
-              width={250}
+              height={isMobile ? 200 : 250}
+              width={isMobile ? 200 : 250}
               className={!isSubmitted ? "pulse" : ""}
             />
             <RSVPSubmitted

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import AccommodationItem from "../accommodationItem/accommodationItem";
 import Layout from "../layout/layout";
 

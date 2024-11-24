@@ -43,14 +43,16 @@ div > p {
   display: flex;
   flex-direction: column;
   font-family: "Playfair";
-  font-size: 28px;
+  font-size: 24px;
+  gap: 16px;
+  margin-top: 20px;
 
   > p {
     margin: 15px 0;
   }
 
   > div {
-    font-size: 18px;
+    font-size: 14px;
   }
 }
 
@@ -96,7 +98,7 @@ div > p {
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   padding: 12px 40px;
   margin-top: 24px;
 }
@@ -191,6 +193,16 @@ label > svg {
   transition: max-height 4s ease, opacity 200ms ease;
 }
 
+@media (min-width: 600px) {
+  .form-text {
+    font-size: 32px;
+
+    > div {
+      font-size: 20px;
+    }
+  }
+}
+
 @media (min-width: 700px) {
   .border {
     display: none;
@@ -208,12 +220,8 @@ label > svg {
     padding: 80px;
   }
 
-  .form-text {
-    font-size: 32px;
-
-    > div {
-      font-size: 20px;
-    }
+  .input-button {
+    font-size: 20px;
   }
 
   .landing-form {

@@ -9,6 +9,7 @@ interface LayoutProps {
   activeSection:
     | "home"
     | "accommodation"
+    | "koumparoi"
     | "wedding"
     | "rsvp"
     | "registry"
@@ -65,6 +66,12 @@ const Layout: React.FC<LayoutProps> = ({
               section="info"
               title="Information"
               urlPath="/information"
+            />
+            <MenuItem
+              activeSection={activeSection}
+              section="koumparoi"
+              title="Koumparoi"
+              urlPath="/koumparoi"
             />
             <MenuItem
               activeSection={activeSection}

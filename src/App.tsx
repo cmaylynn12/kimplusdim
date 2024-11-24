@@ -18,6 +18,7 @@ import Information from "./components/information/info";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LinkError from "./components/errors/linkError";
 import Culture from "./components/culture/culture";
+import Koumparoi from "./components/koumparoi/koumparoi";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ function App() {
             <Route path="/wedding" element={<Wedding />} />
             <Route path="/rsvp" element={<RSVPLanding />} />
             <Route path="/information" element={<Information />} />
+            <Route path="/koumparoi" element={<Koumparoi />} />
             <Route path="/registry" element={<Registry />} />
             <Route path="/activities" element={<Activities />} />
             <Route path="/faqs" element={<FAQs />} />

@@ -1,3 +1,16 @@
+.accommodation {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.7s ease, opacity 0.5s ease;
+}
+
+.accommodation.expanded {
+  max-height: 200px;
+  opacity: 1;
+  transition: max-height 2s ease, opacity 1s ease;
+}
+
 .accommodation-card {
   background-color: white;
   overflow: hidden;

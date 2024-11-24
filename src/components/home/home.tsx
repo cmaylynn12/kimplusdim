@@ -11,14 +11,16 @@ const Home: React.FC = () => {
 
   return (
     <Layout activeSection="home">
-      <div className="container">
-        {/* <div className="days">{daysUntil} days to go!</div> */}
-        <img src="./icon.png" className="icon" />
-        <div className="venue-info">
-          <span className="venue">Island Art & Taste Gallery</span>
-          <span className="address">Leoforos Poseidonos 66, Vari 166 72</span>
+      <div>
+        <div className="container">
+          {/* <div className="days">{daysUntil} days to go!</div> */}
+          <img src="./icon.png" className="icon" />
+          <div className="venue-info">
+            <span className="venue">Island Art & Taste Gallery</span>
+            <span className="address">Leoforos Poseidonos 66, Vari 166 72</span>
+          </div>
+          <Button urlPath="/rsvp" title="RSVP" />
         </div>
-        <Button urlPath="/rsvp" title="RSVP" />
       </div>
     </Layout>
   );

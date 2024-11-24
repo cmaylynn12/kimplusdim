@@ -1,3 +1,33 @@
+.culture-card {
+  border-radius: 15px;
+  height: 300px;
+  background-color: white;
+  overflow: hidden;
+  background-image: url("https://i.etsystatic.com/12885825/r/il/7384ad/2187675936/il_1588xN.2187675936_ikvw.jpg");
+}
+
+.culture-card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.culture-card-mask {
+  background-color: black;
+  opacity: 0.5;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.culture-card-title {
+  font-family: "Playfair";
+  color: white;
+}
+
 .culture-container {
   display: flex;
   flex-direction: column;

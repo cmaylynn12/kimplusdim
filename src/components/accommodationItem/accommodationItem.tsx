@@ -1,5 +1,5 @@
-import { useNavigate } from "react-router-dom";
 import "./accommodationItem.css";
+import { useState } from "react";
 
 interface AccommodationItemProps {
   area: string;
@@ -14,17 +14,25 @@ const AccommodationItem: React.FC<AccommodationItemProps> = ({
   description,
   header,
 }) => {
-  const navigate = useNavigate();
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div
-      className="accommodation-card"
+      onMouseEnter={() => setIsExpanded(true)}
+      onMouseLeave={() => setIsExpanded(false)}
+      className={`accommodation-card`}
       style={{ backgroundImage: imageUrl ? imageUrl : "" }}
-      onClick={() => navigate(`/accommodation/${area.toLowerCase()}`)}
     >
       <div className="area">{area}</div>
       <div className="accommodation-header">{header}</div>
       <div className="description">{description}</div>
+      <div className={`accommodation ${isExpanded ? "expanded" : ""}`}>
+        Here's an intro to {area}
+        Here's an intro to Here's an intro to Here's an intro to Here's an intro
+        to Here's an intro to Here's an intro to Here's an intro to Here's an
+        intro to Here's an intro to Here's an intro to Here's an intro to Here's
+        an intro to Here's an intro to
+      </div>
     </div>
   );
 };

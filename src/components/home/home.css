@@ -49,3 +49,12 @@
     font-size: 36px;
   }
 }
+
+@media (min-width: 1066px) {
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
