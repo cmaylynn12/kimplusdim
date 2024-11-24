@@ -61,30 +61,30 @@ const Layout: React.FC<LayoutProps> = ({
               title="RSVP"
               urlPath="/rsvp"
             />
-            <MenuItem
+            {/* <MenuItem
               activeSection={activeSection}
               section="info"
               title="Information"
               urlPath="/information"
-            />
-            <MenuItem
+            /> */}
+            {/* <MenuItem
               activeSection={activeSection}
               section="koumparoi"
               title="Koumparoi"
               urlPath="/koumparoi"
-            />
+            /> */}
             <MenuItem
               activeSection={activeSection}
               section="accommodation"
               title="Accommodation"
               urlPath="/accommodation"
             />
-            <MenuItem
+            {/* <MenuItem
               activeSection={activeSection}
               section="culture"
               title="Culture"
               urlPath="/culture"
-            />
+            /> */}
             {/*<MenuItem activeSection={activeSection} section= 'wedding' title='Wedding' urlPath='/wedding' />
             <MenuItem activeSection={activeSection} section= 'activities' title='Things to Do' urlPath='/activities' />
             <MenuItem activeSection={activeSection} section= 'registry' title='Registry' urlPath='/registry' />
