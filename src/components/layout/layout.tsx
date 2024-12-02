@@ -27,6 +27,7 @@ const Layout: React.FC<LayoutProps> = ({
 }: LayoutProps) => {
   const { mute, unmute, isMuted, setIsMuted, isMobile } =
     useContext(AppContext);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleSoundButtonToggle = () => {

@@ -4,9 +4,11 @@
   text-align: left;
   text-decoration: none;
   padding: 10px 20px;
-  color: black;
+  color: #005fad;
 }
 
 .active {
-  color: #2a46e2;
+  background-color: #0a61c9;
+  color: #fff;
+  font-weight: 600;
 }

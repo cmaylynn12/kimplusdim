@@ -13,7 +13,8 @@
 }
 
 .accommodation-card {
-  background-color: white;
+  color: #fff;
+  background-color: #005fad;
   overflow: hidden;
   border-radius: 20px;
   padding: 32px 44px;
