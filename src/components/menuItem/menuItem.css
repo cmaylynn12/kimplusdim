@@ -1,10 +1,11 @@
 .button {
-  font-family: "Fermino";
+  font-family: "Playfair";
   font-size: 20px;
   text-align: left;
   text-decoration: none;
   padding: 10px 20px;
   color: black;
+  border-bottom: 2px solid transparent;
 }
 
 .active {
