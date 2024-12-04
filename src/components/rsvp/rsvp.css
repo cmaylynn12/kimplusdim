@@ -7,6 +7,10 @@ div > p {
   font-size: 20px;
 }
 
+.error {
+  font-size: 12px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -201,6 +205,10 @@ label > svg {
       font-size: 20px;
     }
   }
+
+  .error {
+    font-size: 16px;
+  }
 }
 
 @media (min-width: 700px) {
@@ -217,7 +225,10 @@ label > svg {
 
 @media (min-width: 1066px) {
   .form-container {
-    padding: 80px;
+    padding: 60px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 44px;
   }
 
   .input-button {

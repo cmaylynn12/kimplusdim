@@ -86,7 +86,7 @@ const RSVPLanding: React.FC = () => {
               setError(null);
             }}
           />
-          {error && <div>{error}</div>}
+          {error && <div className="error">{error}</div>}
           <input
             className="input-button"
             type="submit"

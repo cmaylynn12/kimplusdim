@@ -15,7 +15,8 @@ import axios from "axios";
 const RSVP: React.FC = () => {
   const { isMobile } = useContext(AppContext);
 
-  const [name, setName] = useState(useLocation().state?.name);
+  const name = useLocation().state?.name;
+  const [contactNumber, setContactNumber] = useState("");
   const guestList = useLocation().state?.guestList;
 
   const navigate = useNavigate();
@@ -58,7 +59,9 @@ const RSVP: React.FC = () => {
 
     formData.append("guests", JSON.stringify(rsvps));
     formData.append("answer", rsvpAnswer === "Joyfully accepts" ? "Yes" : "No");
+    formData.append("contactNumber", contactNumber);
 
+    console.log(formData);
     mutation.mutate({
       method: "POST",
       mode: "no-cors",
@@ -84,7 +87,7 @@ const RSVP: React.FC = () => {
   };
 
   return (
-    <Layout activeSection="rsvp">
+    <Layout activeSection="rsvp" title=" ">
       <div className="form-container">
         <div className="heading">
           <span className="form-header">RSVP</span>
@@ -137,7 +140,6 @@ const RSVP: React.FC = () => {
                 )}
               </div>
             )}
-
             <input
               className="input-button"
               type="submit"

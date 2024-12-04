@@ -47,6 +47,10 @@
 }
 
 @media only screen and (max-width: 1065px) {
+  .menu {
+    align-self: center;
+  }
+
   .menu a {
     text-align: center;
     font-size: 24px;

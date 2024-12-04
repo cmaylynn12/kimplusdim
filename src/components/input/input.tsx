@@ -1,7 +1,8 @@
 import "./input.css";
 
 interface RSVPInputProps {
-  fieldName: string;
+  label?: boolean;
+  fieldName?: string;
   fieldValue?: string;
   onChange?: (name: string) => void;
   onEnter?: (e: any) => void;
@@ -9,6 +10,7 @@ interface RSVPInputProps {
 }
 
 const RSVPInput: React.FC<RSVPInputProps> = ({
+  label,
   fieldName,
   fieldValue,
   disabled,
@@ -22,17 +24,20 @@ const RSVPInput: React.FC<RSVPInputProps> = ({
   };
 
   return (
-    <input
-      name="guestName"
-      spellCheck="false"
-      className="input"
-      placeholder={fieldName}
-      value={fieldValue}
-      readOnly={disabled}
-      onChange={handleChange}
-      onKeyDown={onEnter}
-      autoComplete="off"
-    />
+    <>
+      {label && <div>{fieldName}</div>}
+      <input
+        name="guestName"
+        spellCheck="false"
+        className="input"
+        placeholder={!label ? fieldName : ""}
+        value={fieldValue}
+        readOnly={disabled}
+        onChange={handleChange}
+        onKeyDown={onEnter}
+        autoComplete="off"
+      />
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import clsx from 'clsx';
-import './menuItem.css'
+import { Link } from "react-router-dom";
+import clsx from "clsx";
+import "./menuItem.css";
 
 interface MenuItemProps {
   activeSection: string;
@@ -9,11 +9,22 @@ interface MenuItemProps {
   urlPath: string;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({activeSection, section, title, urlPath}) => {
-
+const MenuItem: React.FC<MenuItemProps> = ({
+  activeSection,
+  section,
+  title,
+  urlPath,
+}) => {
   return (
-    <Link to={urlPath} className={clsx('button', {'active': activeSection === section})}>{title}</Link>
-  )
-}
+    <Link
+      to={urlPath}
+      className={clsx("button", {
+        active: activeSection === section,
+      })}
+    >
+      {title}
+    </Link>
+  );
+};
 
 export default MenuItem;
