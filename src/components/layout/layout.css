@@ -39,11 +39,11 @@
 .main {
   margin: auto;
   text-align: center;
-  padding: 0 30px 20px 30px;
+  padding: 0 30px 0 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 32px;
+  /* margin-top: 32px; */
 }
 
 @media only screen and (max-width: 1065px) {
@@ -68,7 +68,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 4px;
     position: fixed;
   }
 
@@ -81,6 +81,7 @@
 .title {
   font-family: "Fermino";
   font-size: 40px;
+  margin-top: 54px;
 }
 
 .volume {
