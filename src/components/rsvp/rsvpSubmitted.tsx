@@ -14,16 +14,19 @@ const RSVPSubmitted: React.FC<RSVPSubmittedProps> = ({
 }) => {
   const navigate = useNavigate();
   const guest = useLocation().state?.name as string;
-
+  console.log(guest);
   return (
     <div className={`rsvp-text ${isSubmitted ? "expanded" : ""}`}>
       {accepted ? (
         <Message
           message={
-            guest === "Cheok Seng Lee"
-              ? RSVP_MESSAGES[guest]
-              : RSVP_MESSAGES.others
+            RSVP_MESSAGES[guest] ? RSVP_MESSAGES[guest] : RSVP_MESSAGES.others
           }
+          // message={
+          //   guest === "Cheok Seng Lee"
+          //     ? RSVP_MESSAGES[guest]
+          //     : RSVP_MESSAGES.others
+          // }
         />
       ) : (
         <Message message="Now that’s a real shame. A real shame. We’ll be missin’ ya, but I reckon you got your reasons. Don’t worry—there’ll be a drink raised in your honor." />

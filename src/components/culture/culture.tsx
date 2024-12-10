@@ -2,6 +2,8 @@ import { useState } from "react";
 import Layout from "../layout/layout";
 import "./culture.css";
 import CultureCard from "./cultureCard/cultureCard";
+import { Canvas } from "@react-three/fiber";
+import SpinnableCard from "../invite/invite";
 
 const Culture: React.FC = () => {
   const [currentCulture, setCurrentCulture] = useState<null | string>(null);

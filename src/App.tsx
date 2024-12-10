@@ -19,6 +19,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import LinkError from "./components/errors/linkError";
 import Culture from "./components/culture/culture";
 import Koumparoi from "./components/koumparoi/koumparoi";
+import SpinnableCard from "./components/invite/invite";
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 
 const queryClient = new QueryClient();
 
@@ -41,7 +44,8 @@ function App() {
             <Route path="/rsvp/form" element={<RSVP />} />
             <Route path="/rsvp/error" element={<RSVPError />} />
             <Route path="/culture" element={<Culture />} />
-            <Route path="*" element={<LinkError />} />
+            <Route path="/invite" element={<SpinnableCard />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>
       </QueryClientProvider>

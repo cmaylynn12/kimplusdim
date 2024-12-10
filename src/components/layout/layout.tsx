@@ -56,12 +56,6 @@ const Layout: React.FC<LayoutProps> = ({
               title="Home"
               urlPath="/"
             />
-            <MenuItem
-              activeSection={activeSection}
-              section="rsvp"
-              title="RSVP"
-              urlPath="/rsvp"
-            />
             {/* <MenuItem
               activeSection={activeSection}
               section="info"
@@ -80,12 +74,24 @@ const Layout: React.FC<LayoutProps> = ({
               title="Accommodation"
               urlPath="/accommodation"
             />
-            {/* <MenuItem
+            <MenuItem
+              activeSection={activeSection}
+              section="activities"
+              title="Things to Do"
+              urlPath="/activities"
+            />
+            <MenuItem
               activeSection={activeSection}
               section="culture"
               title="Culture"
               urlPath="/culture"
-            /> */}
+            />
+            <MenuItem
+              activeSection={activeSection}
+              section="rsvp"
+              title="RSVP"
+              urlPath="/rsvp"
+            />
             {/*<MenuItem activeSection={activeSection} section= 'wedding' title='Wedding' urlPath='/wedding' />
             <MenuItem activeSection={activeSection} section= 'activities' title='Things to Do' urlPath='/activities' />
             <MenuItem activeSection={activeSection} section= 'registry' title='Registry' urlPath='/registry' />
