@@ -69,7 +69,7 @@ function SpinnableCard() {
         onPointerOut={handlePointerUp} // Stop dragging if pointer leaves the mesh
       >
         {/* Front Plane (Increased size) */}
-        <planeGeometry args={[7, 9]} /> {/* Larger card */}
+        <planeGeometry args={[8, 10]} /> {/* Larger card */}
         <meshBasicMaterial
           map={frontTexture}
           toneMapped={false} // Disable any color mapping effects that might affect brightness
@@ -79,7 +79,7 @@ function SpinnableCard() {
           rotation={[0, Math.PI, 0]} // Rotate 180 degrees around the Y-axis
           position={[0, 0, -0.1]} // Slight offset to avoid overlap with front
         >
-          <planeGeometry args={[7, 9]} /> {/* Larger back card */}
+          <planeGeometry args={[8, 10]} /> {/* Larger back card */}
           <meshBasicMaterial
             map={backTexture}
             toneMapped={false} // Disable any color mapping effects that might affect brightness
