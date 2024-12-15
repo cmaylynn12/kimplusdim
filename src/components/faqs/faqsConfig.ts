@@ -15,7 +15,8 @@ export const FAQs: FAQ[] = [
   },
   {
     question: "What about gifts?",
-    answer: "",
+    answer:
+      "If it is your wish to bless us with a gift, we would gladly appreciate a contribution to our wishing well.",
   },
 
   {
