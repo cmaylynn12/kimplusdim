@@ -68,12 +68,12 @@ const Layout: React.FC<LayoutProps> = ({
               title="Koumparoi"
               urlPath="/koumparoi"
             /> */}
-            <MenuItem
+            {/* <MenuItem
               activeSection={activeSection}
               section="accommodation"
               title="Accommodation"
               urlPath="/accommodation"
-            />
+            /> */}
             <MenuItem
               activeSection={activeSection}
               section="activities"
@@ -82,9 +82,9 @@ const Layout: React.FC<LayoutProps> = ({
             />
             <MenuItem
               activeSection={activeSection}
-              section="culture"
-              title="Culture"
-              urlPath="/culture"
+              section="faqs"
+              title="FAQs"
+              urlPath="/faqs"
             />
             <MenuItem
               activeSection={activeSection}

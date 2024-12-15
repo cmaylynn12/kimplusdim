@@ -32,19 +32,19 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/accommodation" element={<Accommodation />} />
-            <Route path="/accommodation/:place" element={<Accommodation />} />
-            <Route path="/wedding" element={<Wedding />} />
+            {/* <Route path="/accommodation" element={<Accommodation />} /> */}
+            {/* <Route path="/accommodation/:place" element={<Accommodation />} /> */}
+            {/* <Route path="/wedding" element={<Wedding />} /> */}
             <Route path="/rsvp" element={<RSVPLanding />} />
             <Route path="/information" element={<Information />} />
-            <Route path="/koumparoi" element={<Koumparoi />} />
-            <Route path="/registry" element={<Registry />} />
+            {/* <Route path="/koumparoi" element={<Koumparoi />} /> */}
+            {/* <Route path="/registry" element={<Registry />} /> */}
             <Route path="/activities" element={<Activities />} />
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/rsvp/form" element={<RSVP />} />
             <Route path="/rsvp/error" element={<RSVPError />} />
-            <Route path="/culture" element={<Culture />} />
-            <Route path="/invite" element={<SpinnableCard />} />
+            {/* <Route path="/culture" element={<Culture />} />
+            <Route path="/invite" element={<SpinnableCard />} /> */}
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </BrowserRouter>

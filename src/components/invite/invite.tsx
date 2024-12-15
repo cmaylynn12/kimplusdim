@@ -20,10 +20,12 @@ function SpinnableCard() {
     // Set filtering options for smooth and sharp textures
     frontTexture.minFilter = THREE.LinearFilter; // For smoother scaling down
     frontTexture.magFilter = THREE.LinearFilter; // For smoother scaling up
+    frontTexture.anisotropy = 16; // Enable anisotropic filtering for sharpness
     frontTexture.generateMipmaps = true; // Use mipmaps for better scaling at various distances
 
     backTexture.minFilter = THREE.LinearFilter;
     backTexture.magFilter = THREE.LinearFilter;
+    backTexture.anisotropy = 16;
     backTexture.generateMipmaps = true;
   }, [frontTexture, backTexture]);
 
@@ -68,7 +70,7 @@ function SpinnableCard() {
   return (
     <Canvas
       gl={{
-        pixelRatio: Math.min(window.devicePixelRatio, 2), // Limit max ratio to 2x for smoother rendering
+        pixelRatio: Math.min(window.devicePixelRatio, 3), // Limit max ratio to 2x for smoother rendering
         antialias: true, // Enable anti-aliasing for smoother edges
       }}
       camera={{ position: [0, 0, 10], fov: 75 }} // Camera position to get a good view of the card
