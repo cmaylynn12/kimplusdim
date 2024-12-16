@@ -1,11 +1,18 @@
+import { useContext } from "react";
 import Layout from "../layout/layout";
 import FAQItem from "./faqItem";
 import "./faqs.css";
 import { FAQ, FAQs as faqQuestions } from "./faqsConfig";
+import AppContext from "../../contexts/AppContext";
 
 const FAQs: React.FC = () => {
+  const { isMobile } = useContext(AppContext);
+
   return (
-    <Layout activeSection="faqs" title="Frequently Asked Questions">
+    <Layout
+      activeSection="faqs"
+      title={isMobile ? "FAQs" : "Frequently Asked Questions"}
+    >
       <div>
         <div className="faq-subheader">
           We know traveling to Athens for our wedding is a big trip, and you

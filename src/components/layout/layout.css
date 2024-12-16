@@ -50,12 +50,6 @@
   margin-top: 54px;
 }
 
-@media only screen and (max-width: 300px) {
-  .main {
-    overflow-x: hidden;
-  }
-}
-
 @media only screen and (max-width: 1065px) {
   .menu {
     align-self: center;
