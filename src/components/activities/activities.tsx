@@ -49,12 +49,7 @@ const Activities: React.FC = () => {
             </div>
           </div>
         </div>
-        <img
-          src="/ribbon.png"
-          width={500}
-          height={64}
-          style={{ alignSelf: "center" }}
-        />
+        <img src="/ribbon.png" style={{ alignSelf: "center", width: "100%" }} />
         <div>
           <div className="category">Explore & Play</div>
           <div className="category-container">

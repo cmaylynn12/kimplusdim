@@ -33,12 +33,13 @@
 /* FAQ Item */
 .question {
   font-family: "BethEllen";
+  font-size: 17px;
 }
 
 .answer {
   font-family: "Avenir";
   margin-top: 8px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 @media only screen and (max-width: 1065px) {

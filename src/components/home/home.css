@@ -1,5 +1,5 @@
 .address {
-  font-size: 12px;
+  font-size: 24px;
 }
 
 .container {
@@ -19,7 +19,7 @@
 }
 
 .venue {
-  font-size: 16px;
+  font-size: 36px;
 }
 
 .venue-info {
@@ -31,23 +31,14 @@
   align-items: center;
 }
 
-@media (min-width: 370px) {
-  .address {
-    font-size: 24px;
-  }
-
-  .days {
-    font-size: 40px;
-  }
-
+@media (min-width: 600px) {
   .icon {
     height: 575px;
     width: 575px;
   }
+}
 
-  .venue {
-    font-size: 36px;
-  }
+@media (max-width: 1065px) {
 }
 
 @media (min-width: 1066px) {
