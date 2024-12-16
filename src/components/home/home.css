@@ -1,5 +1,5 @@
 .address {
-  font-size: 24px;
+  font-size: 14px;
 }
 
 .container {
@@ -10,7 +10,7 @@
 }
 
 .days {
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .icon {
@@ -19,7 +19,7 @@
 }
 
 .venue {
-  font-size: 36px;
+  font-size: 20px;
 }
 
 .venue-info {
@@ -29,6 +29,16 @@
   gap: 10px;
   margin-bottom: 40px;
   align-items: center;
+}
+
+@media (min-width: 500px) {
+  .address {
+    font-size: 24px;
+  }
+
+  .venue {
+    font-size: 36px;
+  }
 }
 
 @media (min-width: 600px) {
