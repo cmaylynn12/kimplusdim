@@ -88,80 +88,82 @@ const RSVP: React.FC = () => {
 
   return (
     <Layout activeSection="rsvp" title=" ">
-      <div className="form-container">
-        <div className="heading">
-          <span className="form-header">RSVP</span>
-          {!isSubmitting && (
-            <div className="form-subheader">
-              <span>We look forward to celebrating with you!</span>
-              <span>
-                Your response is kindly requested by the 30th of December 2024
-              </span>
-            </div>
-          )}
-        </div>
-        {!isSubmitting ? (
-          <form onSubmit={handleSubmit} className="form">
-            <RSVPInput fieldName="Name" fieldValue={name} disabled />
-            <div className="rsvp-container">
-              <Checkbox
-                name="Joyfully accepts"
-                checked={rsvpAnswer === "Joyfully accepts"}
-                onChange={(e) => handleRsvp(e)}
-              />
-              <Checkbox
-                name="Regretfully declines"
-                checked={rsvpAnswer === "Regretfully declines"}
-                onChange={(e) => handleRsvp(e)}
-              />
-            </div>
-            <hr className="border" />
-            {guestList && guestList.length >= 1 && (
-              <div className="guest-list-container">
-                <Checkbox
-                  name="Are you rsvp-ing on behalf of anyone else?"
-                  onChange={() => {
-                    setMoreGuests(!moreGuests);
-                    setRsvps([name]);
-                  }}
-                />
-                {moreGuests && (
-                  <div className="guest-list">
-                    {guestList.map((guest: any) => (
-                      <div className="additional-guest">
-                        <Checkbox
-                          key={guest}
-                          name={guest.name}
-                          onChange={(e) => handleAttending(e)}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                )}
+      <div style={{ width: "100%", paddingBottom: "60px" }}>
+        <div className="form-container">
+          <div className="heading">
+            <span className="form-header">RSVP</span>
+            {!isSubmitting && (
+              <div className="form-subheader">
+                <span>We look forward to celebrating with you!</span>
+                <span>
+                  Your response is kindly requested by the 30th of December 2024
+                </span>
               </div>
             )}
-            <input
-              className="input-button"
-              type="submit"
-              value="Submit"
-              disabled={!rsvpAnswer || isSubmitting}
-            />
-          </form>
-        ) : (
-          <>
-            <img
-              alt="pic of cupid"
-              src="/cupid.png"
-              height={isMobile ? 200 : 250}
-              width={isMobile ? 200 : 250}
-              className={!isSubmitted ? "pulse" : ""}
-            />
-            <RSVPSubmitted
-              accepted={rsvpAnswer === "Joyfully accepts" ? true : false}
-              isSubmitted={isSubmitted}
-            />
-          </>
-        )}
+          </div>
+          {!isSubmitting ? (
+            <form onSubmit={handleSubmit} className="form">
+              <RSVPInput fieldName="Name" fieldValue={name} disabled />
+              <div className="rsvp-container">
+                <Checkbox
+                  name="Joyfully accepts"
+                  checked={rsvpAnswer === "Joyfully accepts"}
+                  onChange={(e) => handleRsvp(e)}
+                />
+                <Checkbox
+                  name="Regretfully declines"
+                  checked={rsvpAnswer === "Regretfully declines"}
+                  onChange={(e) => handleRsvp(e)}
+                />
+              </div>
+              <hr className="border" />
+              {guestList && guestList.length >= 1 && (
+                <div className="guest-list-container">
+                  <Checkbox
+                    name="Are you rsvp-ing on behalf of anyone else?"
+                    onChange={() => {
+                      setMoreGuests(!moreGuests);
+                      setRsvps([name]);
+                    }}
+                  />
+                  {moreGuests && (
+                    <div className="guest-list">
+                      {guestList.map((guest: any) => (
+                        <div className="additional-guest">
+                          <Checkbox
+                            key={guest}
+                            name={guest.name}
+                            onChange={(e) => handleAttending(e)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+              <input
+                className="input-button"
+                type="submit"
+                value="Submit"
+                disabled={!rsvpAnswer || isSubmitting}
+              />
+            </form>
+          ) : (
+            <>
+              <img
+                alt="pic of cupid"
+                src="/cupid.png"
+                height={isMobile ? 200 : 250}
+                width={isMobile ? 200 : 250}
+                className={!isSubmitted ? "pulse" : ""}
+              />
+              <RSVPSubmitted
+                accepted={rsvpAnswer === "Joyfully accepts" ? true : false}
+                isSubmitted={isSubmitted}
+              />
+            </>
+          )}
+        </div>
       </div>
     </Layout>
   );

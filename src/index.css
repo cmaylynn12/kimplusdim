@@ -2,6 +2,8 @@ html,
 #root {
   height: 100%;
   background-color: #fbfbfe;
+  background-image: url("/public/background.png");
+  background-size: 600px;
 }
 
 body {

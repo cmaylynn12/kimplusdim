@@ -1,14 +1,23 @@
 .main-button {
   background-color: #005fad;
-  font-family: "Playfair";
+  font-family: "BethEllen";
   color: white;
   border: none;
-  border-radius: 25px;
+  border-radius: 32px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 16px;
   padding: 12px 40px;
+  width: 200px;
 }
 
 .main-button:hover {
   background-color: #1f35b2;
+}
+
+@media only screen and (max-width: 370px) {
+  .main-button {
+    width: 100px;
+    font-size: 12px;
+    padding: 6px 20px;
+  }
 }

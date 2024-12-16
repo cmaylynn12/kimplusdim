@@ -1,12 +1,13 @@
 .activities {
-  margin-top: 132px;
+  margin-top: 110px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 52px;
+  padding-bottom: 100px;
 }
 
 .category {
-  font-family: "Playfair";
+  font-family: "BethEllen";
   font-size: 36px;
   margin-bottom: 28px;
 }
@@ -35,4 +36,19 @@
   align-items: flex-start;
   max-width: 45%;
   flex-grow: 1;
+}
+
+@media only screen and (max-width: 1066px) {
+  .activities {
+    margin-top: 42px;
+  }
+
+  .category-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .type-container {
+    min-width: 270px;
+  }
 }

@@ -1,10 +1,20 @@
-.title {
+/* .title {
   font-family: "Fermino";
   font-size: 40px;
+} */
+.faq-subheader {
+  font-family: "Avenir";
+  width: 750px;
+  justify-self: center;
 }
 
 .q-and-a {
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 44px;
+  margin-bottom: 44px;
 
   > p {
     margin-top: 50px;
@@ -21,13 +31,12 @@
 
 /* FAQ Item */
 .question {
-  margin-top: 50px;
-  font-family: "Playfair";
-  font-size: 25px;
-  margin-bottom: 10px;
+  font-family: "BethEllen";
+  font-size: 20px;
 }
 
 .answer {
-  font-family: "Playfair";
-  font-size: 20px;
+  font-family: "Avenir";
+  font-size: 16px;
+  margin-top: 8px;
 }

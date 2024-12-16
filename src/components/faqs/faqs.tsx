@@ -7,7 +7,7 @@ const FAQs: React.FC = () => {
   return (
     <Layout activeSection="faqs" title="Frequently Asked Questions">
       <div>
-        <div>
+        <div className="faq-subheader">
           We know traveling to Athens for our wedding is a big trip, and you
           probably have a lot of questions. Hopefully, this section will answer
           them and make your planning a little easier!

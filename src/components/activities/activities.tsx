@@ -3,8 +3,12 @@ import Layout from "../layout/layout";
 import "./activities.css";
 import SpinnableCard from "../invite/invite";
 import { OrbitControls } from "@react-three/drei";
+import { useContext } from "react";
+import AppContext from "../../contexts/AppContext";
 
 const Activities: React.FC = () => {
+  const { isMobile } = useContext(AppContext);
+
   return (
     <Layout activeSection="activities">
       <div className="activities">
@@ -19,14 +23,16 @@ const Activities: React.FC = () => {
               </div>
             </div>
             <div className="type-container">
-              <div className="type">3/ Modern Fusion Restaurants</div>
+              <div className="type">{`${
+                isMobile ? 2 : 3
+              }/ Modern Fusion Restaurants`}</div>
               <div className="places">
                 Ekiben Kitchen • Tanpopo • Birdman • Zuzuto Ramen • Cookoovaya •
                 NYX • Juicy Grill • Selim Bey • Eleas Gi{" "}
               </div>
             </div>
             <div className="type-container">
-              <div className="type">2/ Rooftop Bars</div>
+              <div className="type">{`${isMobile ? 3 : 2}/ Rooftop Bars`}</div>
               <div className="places">
                 Attic Urban Rooftop • City ZEN Athens • 360 Cocktail Bar • Thea
                 Terrace Bar • Rooftop at St. George Lycabettus • A for Athens •
@@ -43,6 +49,12 @@ const Activities: React.FC = () => {
             </div>
           </div>
         </div>
+        <img
+          src="/ribbon.png"
+          width={500}
+          height={64}
+          style={{ alignSelf: "center" }}
+        />
         <div>
           <div className="category">Explore & Play</div>
           <div className="category-container">
@@ -55,14 +67,16 @@ const Activities: React.FC = () => {
               </div>
             </div>
             <div className="type-container">
-              <div className="type">3/ Shopping</div>
+              <div className="type">{`${isMobile ? 2 : 3}/ Shopping`}</div>
               <div className="places">
                 Ermou Street • Monastiraki Flea Market • Kolonaki • Golden Hall
                 • Discount Village • The Mall Athens
               </div>
             </div>
             <div className="type-container">
-              <div className="type">2/ Nearby Beaches</div>
+              <div className="type">{`${
+                isMobile ? 3 : 2
+              }/ Nearby Beaches`}</div>
               <div className="places">
                 Akti Vouliagmenis Beach • Cape Sounion • Vouliagmeni Lake •
                 Glyfada Beach • Lagonisi Beach • Voula Beach • Varkiza Beach

@@ -6,7 +6,7 @@ export const FAQs: FAQ[] = [
   {
     question: "When and where is the wedding?",
     answer:
-      "The location will be at the Island Art & Taste - Gallery venue. The ceremony will begin at 18:00, following that we'll have a cocktail hour which includes a traditional tea creremony, then the reception where there will be plenty of food and drinks to continue the celebration.",
+      "The location will be at the Island Art & Taste - Gallery venue. The ceremony will begin at 6PM, following that we'll have a cocktail hour which includes a traditional tea creremony, then the reception where there will be plenty of food and drinks to continue the celebration.",
   },
   {
     question: "What should I wear?",

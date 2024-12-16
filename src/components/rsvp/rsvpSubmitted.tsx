@@ -14,7 +14,6 @@ const RSVPSubmitted: React.FC<RSVPSubmittedProps> = ({
 }) => {
   const navigate = useNavigate();
   const guest = useLocation().state?.name as string;
-  console.log(guest);
   return (
     <div className={`rsvp-text ${isSubmitted ? "expanded" : ""}`}>
       {accepted ? (

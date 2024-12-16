@@ -39,11 +39,15 @@
 .main {
   margin: auto;
   text-align: center;
-  padding: 0 30px 0 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* margin-top: 32px; */
+}
+
+.title {
+  font-family: "BethEllen";
+  font-size: 40px;
+  margin-top: 54px;
 }
 
 @media only screen and (max-width: 1065px) {
@@ -68,20 +72,15 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
     position: fixed;
+    gap: 12px;
   }
 
   .main {
     width: 55%;
     height: 100vh;
+    padding: 0 30px 0 30px;
   }
-}
-
-.title {
-  font-family: "Fermino";
-  font-size: 40px;
-  margin-top: 54px;
 }
 
 .volume {
