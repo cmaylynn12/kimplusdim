@@ -9,4 +9,6 @@
 
 .submessage {
   margin-top: 20px;
+  white-space: pre-line;
+  margin-bottom: 12px;
 }
