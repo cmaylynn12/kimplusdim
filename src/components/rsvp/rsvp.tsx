@@ -96,7 +96,7 @@ const RSVP: React.FC = () => {
               <div className="form-subheader">
                 <span>We look forward to celebrating with you!</span>
                 <span>
-                  Your response is kindly requested by the 31st of February 2024
+                  Your response is kindly requested by the 31st of January 2025
                 </span>
               </div>
             )}
